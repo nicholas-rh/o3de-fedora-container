@@ -1,0 +1,12 @@
+diff --git a/cmake/Platform/Common/Clang/Configurations_clang.cmake b/cmake/Platform/Common/Clang/Configurations_clang.cmake
+index c0916aea11..59a4ce9de0 100644
+--- a/cmake/Platform/Common/Clang/Configurations_clang.cmake
++++ b/cmake/Platform/Common/Clang/Configurations_clang.cmake
+@@ -18,7 +18,6 @@ ly_append_configurations_options(
+         -fvisibility=hidden
+         -fvisibility-inlines-hidden
+         -Wall
+-        -Werror
+ 
+         ###################
+         # Disabled warnings (please do not disable any others without first consulting sig-build)

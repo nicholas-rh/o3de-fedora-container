@@ -26,6 +26,10 @@ WORKDIR o3de
 
 RUN git checkout $GIT_HEAD
 
+ADD Configurations_clang.patch .
+
+RUN git apply Configurations_clang.patch
+
 RUN mkdir $O3DE_PACKAGE_DIR
 
 RUN git lfs pull
@@ -44,4 +48,4 @@ WORKDIR $PROJ_PATH
 
 RUN cmake -B build/linux -S . -G "Ninja Multi-Config"
 
-RUN cmake --build build/linux --target $PROJ_NAME.GameLauncher Editor --config $BUILD_CONFIG -j $NUM_JOBS
+RUN cmake --build build/linux --target $PROJ_NAME.GameLauncher Editor --config $BUILD_CONFIG
