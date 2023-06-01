@@ -1,0 +1,18 @@
+diff --git a/cmake/Platform/Linux/Configurations_linux_x86_64.cmake b/cmake/Platform/Linux/Configurations_linux_x86_64.cmake
+index 1d3438aee5..77913f8930 100644
+--- a/cmake/Platform/Linux/Configurations_linux_x86_64.cmake
++++ b/cmake/Platform/Linux/Configurations_linux_x86_64.cmake
+@@ -42,11 +42,13 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+                 -msse4.1
+             LINK_NON_STATIC
+                 -Wl,--no-undefined
++                -fuse-ld=lld
+                 -fpie
+                 -Wl,-z,relro,-z,now
+                 -Wl,-z,noexecstack
+             LINK_EXE
+                 -fpie
++                -fuse-ld=lld
+                 -Wl,-z,relro,-z,now
+                 -Wl,-z,noexecstack
+         )

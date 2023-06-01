@@ -12,7 +12,7 @@ RUN dnf update -y
 
 RUN dnf install -y openssl cmake clang ninja-build git git-lfs openssl-devel libunwind-devel libzstd-devel which \
 		zlib-devel libxkbcommon-x11-devel libcurl-devel fontconfig-devel libxcb-devel mesa-libGLU-devel \
-                qt5-qtbase-devel lldb
+                qt5-qtbase-devel lldb lld
 
 RUN useradd -ms /bin/bash $USER_NAME
 
@@ -29,8 +29,9 @@ WORKDIR o3de
 RUN git checkout $GIT_HEAD
 
 ADD Configurations_clang.patch .
-
+ADD Configurations_linux_x86_64.patch .
 RUN git apply Configurations_clang.patch
+RUN git apply Configurations_linux_x86_64.patch
 
 RUN mkdir $O3DE_PACKAGE_DIR
 
