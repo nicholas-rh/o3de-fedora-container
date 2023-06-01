@@ -20,6 +20,8 @@ USER $USER_NAME
  
 WORKDIR /home/$USER_NAME
 
+ADD build.sh .
+
 RUN git clone https://github.com/o3de/o3de.git
 
 WORKDIR o3de
